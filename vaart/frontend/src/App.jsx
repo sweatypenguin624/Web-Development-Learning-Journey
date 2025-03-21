@@ -1,12 +1,14 @@
-import React from "react";
+import React from 'react';
 
-function App() {
-  console.log("✅ App component is rendering!"); // Debug message
+console.log("✅ App component is rendering!"); // Debug message
+
+
+const App = () => {
   return (
     <div>
-      <h1>Hello, World!</h1>
+      <h1>Welcome to the Texting App</h1>
     </div>
   );
-}
+};
 
 export default App;

@@ -48,22 +48,45 @@ const ShortUrl = styled.p`
   word-break: break-all;
 `;
 
+const ErrorMessage = styled.p`
+  margin-top: 10px;
+  font-size: 1rem;
+  color: red;
+`;
+
 const App = () => {
   const [inputUrl, setInputUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const [error, setError] = useState(null);
 
   const handleShorten = async () => {
-    if (!inputUrl) return;
+    if (!inputUrl) {
+      setError("Please enter a valid URL.");
+      return;
+    }
+
+    setError(null); // Clear previous errors
+
     try {
-      const response = await fetch("http://localhost:5000/api/shorten", {
+      const response = await fetch("http://192.168.38.135:5002/shorten", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ longUrl: inputUrl }),
+        body: JSON.stringify({ url: inputUrl }),
       });
+
       const data = await response.json();
+
+      if (!response.ok) {
+        console.error("Server Error:", data);
+        setError(data.error || "Failed to shorten URL.");
+        return;
+      }
+
+      console.log("Shortened URL:", data.shortUrl);
       setShortUrl(data.shortUrl);
     } catch (error) {
-      console.error("Error shortening URL", error);
+      console.error("Network Error:", error);
+      setError("Network error. Check your connection.");
     }
   };
 
@@ -78,6 +101,7 @@ const App = () => {
       />
       <Button onClick={handleShorten}>Shorten URL</Button>
       {shortUrl && <ShortUrl>Shortened URL: <a href={shortUrl} target="_blank" rel="noopener noreferrer">{shortUrl}</a></ShortUrl>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   );
 };

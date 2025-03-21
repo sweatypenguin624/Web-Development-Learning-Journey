@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Bot Magic</title>
+    <meta name="description" content="Voice Assistant Chat Bot" />
+    <meta name="author" content="Lovable" />
+    <meta
+      property="og:image"
+      content="https://lovable.dev/opengraph-image-p98pqg.png"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <div class="mic-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"
+              ></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" x2="12" y1="19" y2="22"></line>
+            </svg>
+          </div>
+          <span>VoiceAssistant</span>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div class="chat-container">
+          <div class="conversation" id="conversation">
+            <!-- Messages will appear here -->
+            <div class="message bot-message">
+              <div class="avatar bot">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 8V4H8"></path>
+                  <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                  <path d="M2 14h2"></path>
+                  <path d="M20 14h2"></path>
+                  <path d="M15 13v2"></path>
+                  <path d="M9 13v2"></path>
+                </svg>
+              </div>
+              <div class="bubble">
+                <p>
+                  Hello! I'm your voice assistant. Click the microphone button
+                  and start speaking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button id="voice-button" class="voice-button">
+              <div class="inner-circle"></div>
+              <div class="outer-circle"></div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"
+                ></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
+            </button>
+            <p class="status-text" id="status">Click to speak</p>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>&copy; 2024 Voice Bot Magic. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
