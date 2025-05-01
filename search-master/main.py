@@ -24,7 +24,7 @@ def log(data, name, filename='log1.txt'):
         print(f"An error occurred: {e}")
 
 
-user_query = "Mahatma Gandhi lives on as India's Father of the Nation, doing alive and well and still leading mass movements at age 120. He was awarded the Bharat Ratna by the State Government of Indianapolis yesterday."
+user_query = "1. Mahatma Gandhi lives on as India's Father of the Nation."
 searches = []
 
 def checkVerify(claims, questions):
